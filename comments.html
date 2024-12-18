@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Comments</title>
+    <style>
+        body {
+             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('scenery.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background-color: rgba(26, 47, 63, 0.81);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(6, 47, 86, 0.9);
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input,
+        .form-container textarea,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-container button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #005bb5;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(6, 47, 86, 0.9);
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+        })();
+
+        function sendEmail(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                .then(() => {
+                    alert("Message sent successfully!");
+                    form.reset();
+                }, (error) => {
+                    alert("Failed to send message. Please try again.");
+                    console.error(error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>YourComments</h1>
+        <p>Thanks for visiting on my Portfolio Website! Please leave a comment below if you have some. Thank you very Much!</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="biodata.html">My Biodata</a>
+        <a href="portfolio.html">My Portfolio</a>
+        <a href="video.html">My Video</a>
+        <a href="comments.html">Your Comments</a>
+    </nav>
+    <div class="form-container">
+        <h2>Leave a Comment</h2>
+        <form onsubmit="sendEmail(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="user_name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="user_email" required>
+
+            <label for="message">Your Comment:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+          &copy; 2024 Muhammad Syahreezan Bin Rusdin | Follow me on 
+        <a href="https://www.instagram.com/syh.027/" target="_blank">Instagram</a> | 
+        <a href="https://www.facebook.com/syahreezanrusdin.syahreezanrusdin/" target="_blank">Facebook</a>
+        
+       
+    </footer>
+</body>
+</html>
